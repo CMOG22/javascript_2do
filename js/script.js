@@ -1,3 +1,4 @@
+/*
 let button = document.querySelector('button');
 button.onclick =function () {
     alert("Bienvenido a servicios de TI \nVamos a ayudarlo con su experiencia por el sitio por favor seleccione las opciones utilizando el teclado númerico");
@@ -66,3 +67,35 @@ button.onclick =function () {
         alert("Gracias por su visita \nEsperamos que regrese pronto")
     }
 }
+*/
+let button = document.querySelector('button');
+button.onclick =function () {
+    let usuario = prompt("¿Eres cliente o administrador?\nEscribe -salir- para terminar");
+    while (usuario != "salir"){
+        switch (usuario) {
+            case "adm":
+                alert("Bienvenido, ¿qué vamos a hacer hoy? \n" + "Seleccione el número de la acción a realizar\n" + "1.- Dar de alta un producto\n" + "2.- Dar de baja un articulo");
+
+
+
+
+
+
+            break;
+            case "cliente":
+
+            break;
+        }
+        usuario = prompt("¿Eres cliente o administrador?\nEscribe -salir- para terminar");
+    }
+
+}
+/*
+let alumnos = '';
+for (let index = 0; index < 3; index++) {
+    alumnos += prompt("INGRESAR NOMBRE DE ALUMNO")+"\n";
+}
+alert(alumnos);
+*/ //diapositiva 30
+
+
