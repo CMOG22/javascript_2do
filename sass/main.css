@@ -2,8 +2,13 @@ h1, h2, p {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
+h1 {
+  font-size: 5rem;
+  text-align: center;
+}
+
 .contenedor {
-  width: 90%;
+  width: 50%;
   border: 2px solid red;
   display: grid;
   grid-template-columns: 1fr;
@@ -12,18 +17,13 @@ h1, h2, p {
   background-attachment: fixed;
   background-size: cover;
 }
-.contenedor h1 {
-  font-size: 5rem;
-  margin: 0 2rem;
-  text-align: center;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px white;
+.contenedor h2 {
+  font-size: 2.5rem;
+  margin: 2rem;
 }
-.contenedor p {
-  font-size: 3rem;
-  font-weight: lighter;
-  margin: 0 2rem;
-  text-align: center;
+.contenedor li {
+  margin-left: 3rem;
+  font-size: 2rem;
 }
 .contenedor button {
   margin: 2rem auto;
@@ -36,38 +36,4 @@ h1, h2, p {
 }
 .contenedor button:hover {
   background-color: gray;
-}
-
-h1 {
-  font-size: 5rem;
-}
-
-.fr_productos {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  -moz-column-gap: 2rem;
-       column-gap: 2rem;
-  display: flex;
-  justify-content: space-around;
-}
-.fr_productos section {
-  border: 1px solid grey;
-  padding: 1rem;
-  width: 20%;
-  text-align: center;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-}
-.fr_productos img {
-  width: 10rem;
-  height: 10rem;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-}
-.fr_productos h2 {
-  font-size: 3rem;
-  text-align: center;
-}
-.fr_productos p {
-  color: white;
-  font-size: 2.5rem;
-  font-weight: bold;
 }/*# sourceMappingURL=main.css.map */

@@ -1,101 +1,314 @@
-/*
 let button = document.querySelector('button');
-button.onclick =function () {
-    alert("Bienvenido a servicios de TI \nVamos a ayudarlo con su experiencia por el sitio por favor seleccione las opciones utilizando el teclado númerico");
-    let seleccion = prompt("Selecciona una de las siguientes opciones: \n1 - Contratar servicio. \n2 - Nuestra garantía. \n3 - Salir")
-    if (seleccion == 1){
-        function sumarServicios(web=0, app=0, marketing=0, redes=0, soporte=0){
-            return web + app + marketing + redes + soporte
+button.onclick = function (){
+    class Stock{
+        constructor(id, serv, precio){
+            this.id = id;
+            this.serv = serv;
+            this.precio = precio;
         }
-        let web1 = Number(prompt("¿Quieres contratar el servicio de Desarrollo Web? \nEscribe 1 para contratar \nEscribe 0 para no contratar")) 
-        if (web1 == 1){
-            web1 = 1500;
-        }else {
-            web1 = 0;
-        }
-        let app1 = Number(prompt("¿Quieres contratar el servicio de Desarrollo de App Mobile? \nEscribe 1 para contratar \nEscribe 0 para no contratar"))
-        if (app1 == 1) {
-            app1 = 2000;
-        }else {
-            app1 = 0;
-        }
-        let marketing1 = Number(prompt("¿Quieres contratar el servicio de Marketing Digital? \nEscribe 1 para contratar \nEscribe 0 para no contratar"))
-        if (marketing1 == 1){
-            marketing1 = 500;
-        } else {
-            marketing1 = 0;
-        }
-        let redes1 = Number(prompt("¿Quieres contratar el servicio de Instalación de Redes? \nEscribe 1 para contratar \nEscribe 0 para no contratar"))
-        if (redes1 == 1){
-            redes1 = 750;
-        }else {
-            redes1 = 0;
-        }
-        let soporte1 = Number(prompt("¿Quieres contratar el servicio de Soporte tecnico? \nEscribe 1 para contratar \nEscribe 0 para no contratar"))
-        if (soporte1 == 1 ){
-            soporte1 = 300;
-        }else {
-            soporte1 = 0;
-        }
-        let serviciosContratados = sumarServicios(web1, app1, marketing1, redes1, soporte1)
-        if (serviciosContratados >= 1 && serviciosContratados <= 2000){
-            alert("Total de servicios Contratados: USD$" + serviciosContratados);
-        }
-        else if (serviciosContratados >= 2001){
-            serviciosContratados = serviciosContratados * 0.95;
-            alert("Se otorgo un descuento del 5% \nTotal de servicios contratados: USD$"+ serviciosContratados);
-        }else if (serviciosContratados >= 3001){
-            serviciosContratados = serviciosContratados * 0.90;
-            alert("Se otorgo un descuento del 10% \nTotal de servicios contratados: USD$"+ serviciosContratados);
-        }else if (serviciosContratados >=4001){
-            serviciosContratados = serviciosContratados * 0.87;
-            alert("Se otorgo un descuento del 13% \nTotal de servicios contratados: USD$"+ serviciosContratados);
-        }
-        if (serviciosContratados == 0){
-            alert("No se selecciono ningun servicio \nLamentamos no poder ayudarle. \nGracias por su visita")
-        }else if(serviciosContratados > 0){
-            alert("Le solicitaremos sus datos para iniciar con el tramite del servicio y poderlo contactar")
-            let nombre = prompt("Ingresa tu nombre completo:")
-            let empresa = prompt("Nombre de la empresa:")
-            let telefono = prompt("Telefono:")
-            let correo = prompt("Correo electronico:")
-            alert("Gracias por contratarnos " + nombre + "\n\nDatos registrados: \nEmpresa: " + empresa + "\nTelefono: " + telefono + "\nCorreo Electronico: " +correo)
-        }
-    }else if (seleccion == 2){
-        alert("Somos una empresa con mas de 2 años de experiencia y con una retención de clientes del 95%, quedando totalmente satisfechos \n\nLo invitamos a realizar su pedido con toda confianza. \n\nContamos con diversos metodos de pago como son: \n - Pago en linea \n - Pago por transferencia bancaria")
-    }else if (seleccion == 3){
-        alert("Gracias por su visita \nEsperamos que regrese pronto")
     }
-}
-*/
-let button = document.querySelector('button');
-button.onclick =function () {
-    let usuario = prompt("¿Eres cliente o administrador?\nEscribe -salir- para terminar");
-    while (usuario != "salir"){
-        switch (usuario) {
-            case "adm":
-                alert("Bienvenido, ¿qué vamos a hacer hoy? \n" + "Seleccione el número de la acción a realizar\n" + "1.- Dar de alta un producto\n" + "2.- Dar de baja un articulo");
-
-
-
-
-
-
-            break;
-            case "cliente":
-
-            break;
+    
+    //Alta de Servicios
+    function agregar(){
+        let desicion = Number(prompt("Seleccione el numero de la opcion a realizar \n 1.- Cargar lista predefinida de Servicios \n2.-Agregar manualmente un servicio"))
+            if (desicion == 1 && noCargarListaDosVeces) {
+                for (const iterator of arrayServ) {
+                servicios.push(iterator)
+                }
+                console.log("Se cargo lista por default de servicios\n\n")
+            servicios.forEach(element => {
+                console.log(
+                "- ID: " + element.id + "\n" + 
+                "- Servicio: " + element.serv + "\n" + 
+                "- Precio: $" + element.precio + "\n\n");
+            });
+            alert("Se ha cargado la lista aleatoria de elementos")
+            noCargarListaDosVeces=false;
+        }else if (desicion == 1 && noCargarListaDosVeces==false){
+            alert("No puede ingresar dos veces la lista de prueba, ya que se repetirian los ID. Si quiere agregar mas elementos, seleccione la forma manual por favor.")
+        }else if (desicion==2){
+            let flag=true;
+            let opcion2=true;
+            let opcion3=true;
+            let opcion4=true;
+            let opcion5=true;
+            let opcion6=true;
+            let controlDeID=[];
+            let controlDePrecio=[];
+            do {
+                if (flag) {
+                    // Do while para que no ingresen un ID invalido
+                    let id;
+                    do {
+                        id = Number(prompt("Ingrese el ID del servicio "));
+                        if(!id || isNaN(id)){
+                            alert("Ingresó un ID inválido, intente nuevamente!")
+                            opcion4=true;
+                        }else{
+                            controlDeID.push(id);
+                            opcion4=false;
+                        }
+                    } while (opcion4);
+        
+                    let serv = prompt ("Ingrese Servicio").toUpperCase();
+        
+                    // Do while para que no ingresen un precio invalido
+                    let precio;
+                    do {
+                        precio = Number(prompt("Ingrese el precio"));
+                        if(!precio || isNaN(precio)){
+                            alert("Ingresó un precio inválido, intente nuevamente!")
+                            opcion5=true;
+                        }else{
+                            controlDePrecio.push(precio);
+                            opcion5=false;
+                        }
+                    } while (opcion5);
+        
+                    servicios.push(new Stock(id, serv, precio));
+                    console.log("Servicio agregado");
+                    flag=false;
+                } else {
+                    let opcion = confirm("Desea agregar otro servicio?");
+                    if (opcion) {
+                        let id;
+                            // Do while para que no ingresen un ID invalido ni repetido
+                            do {
+                                id = Number(prompt("Ingrese el siguiente ID del servicio"));
+                                if(controlDeID.includes(id) || isNaN(id) || !id){
+                                    alert("Ingresó un ID existente o inválido, intente nuevamente!")
+                                    opcion3=true;
+                                }else{
+                                    controlDeID.push(id);
+                                    opcion3=false;
+                                }
+                            } while (opcion3);
+        
+                        let serv = prompt ("Ingrese el nombre del servicio").toUpperCase();
+        
+                        // Do while para que no ingresen un precio invalido
+                        let precio;
+                        do {
+                            precio = Number(prompt("Ingrese el precio"));
+                            if(isNaN(precio) || !precio){
+                                alert("Ingresó un precio inválido, intente nuevamente!")
+                                opcion6=true;
+                            }else{
+                                controlDePrecio.push(precio);
+                                opcion6=false;
+                            }
+                        } while (opcion6);
+                        servicios.push(new Stock(id, serv, precio))
+                        console.log("Servicio agregado")
+                } else{
+                    opcion2=false;
+                    break;
+                }
+                }
+            } while (opcion2);
         }
-        usuario = prompt("¿Eres cliente o administrador?\nEscribe -salir- para terminar");
+        
     }
+    // Ver lista de Servicios
+    function mostrar(){
+        if(servicios.length==0){
+            alert("Aun no ha cargado ningún servicio")
+        }else{
+        console.log("El stock cargado al sistema hasta el momento es el siguiente: \n\n");
+        servicios.forEach(element => {
+            console.log(
+            "- ID: " + element.id + "\n" + 
+            "- Servicio: " + element.serv + "\n" + 
+            "- Precio: $" + element.precio + "\n\n");
+        });
+        }
+    }
+    
+    
+    //Ordenar
+    function ordenar (){
+        if(servicios.length==0){
+            alert("Aun no ha cargado ningún servicio a la lista de stock")
+        }else{
+            let menuOrden = Number(prompt(
+                "- Ingrese el numero, segun como desea ordenar la lista: \n \n \
+                    1) Por numeros de ID. \n \
+                    2) Por precios. \n \
+                    0) Volver."
+                ));
+                switch (menuOrden) {
+                    case 1:
+                        servicios.sort(function (a, b) {
+                            if (a.id > b.id) {
+                            return 1;
+                            }
+                            if (a.id < b.id) {
+                            return -1;
+                            }
+                            return 0;
+                        });
+                        console.log("Los elementos ordenados segun su ID, quedan asi: \n\n");
+                        servicios.forEach(element => {
+                            console.log(
+                            "- ID: " + element.id + "\n" + 
+                            "- Servicios: " + element.serv + "\n" + 
+                            "- Precio: $" + element.precio + "\n\n");
+                        });
+                    break;
+                    case 2:
+                        servicios.sort(function (a, b) {
+                            if (a.precio > b.precio) {
+                            return 1;
+                            }
+                            if (a.precio < b.precio) {
+                            return -1;
+                            }
+                            return 0;
+                        });
+                        console.log("Los elementos ordenados segun su precio, quedan asi: \n\n");
+                        servicios.forEach(element => {
+                            console.log(
+                            "- ID: " + element.id + "\n" + 
+                            "- Servicios: " + element.serv + "\n" + 
+                            "- Precio: $" + element.precio + "\n\n");
+                        });
+                    break;
+                    case 0:
+                    break;
+                    default:
+                        console.log("\n NOpción no valida, ingrese un numero valido \n");
+                    break;
+                }
+        }
+    }
+    
+    
+    //Fitrar
+    function filtrar(){
+        if(servicios.length==0){
+            alert("Aun no ha cargado ningún servicio")
+        }else{
+    let filtro = Number(prompt(
+        "- Ingrese el numero, segun lo que desea hacer: \n \n \
+            1.- Mostrar los nombres de cada servicio. \n \
+            2.- Mostrar precios. \n \
+            0.- Volver."
+        ));
+        switch (filtro) {
+            case 1:
+                console.log("Los servicios agregados hasta ahora son: \n\n");
+                const soloNombres =  servicios.map((element)=>element.serv)
+                for (const key in soloNombres) {
+                    console.log("- " + soloNombres[key] + "\n");
+                    }
+                break;
+                case 2:
+                    let totalPrecios=0;
+                    console.log("Los precios de los servicios: \n\n");
+                    const soloPrecios =  servicios.map((element)=>element.precio)
+                    for (const key in soloPrecios) {
+                    totalPrecios += soloPrecios[key];
+                    console.log("- $" + soloPrecios[key] + "\n");
+                    }
+                    break;
+                    case 0:
+                break;
+                default:
+                    console.log("Opción no valida, ingrese un numero valido \n");
+                break;
+        }
+    }
+    }
+    
+    
+    //FUNCION PARA ELIMINAR ELEMENTOS
+    function eliminar(){
+        if(servicios.length==0){
+            alert("Aun no ha cargado ningún servicio")
+        }else{
+            servicios.sort(function (a, b) {
+                if (a.id > b.id) {
+                return 1;
+                }
+                if (a.id < b.id) {
+                return -1;
+                }
+                return 0;
+            });
+            console.log("Los elementos hasta el momento son los siguientes: \n\n");
+                        servicios.forEach(element => {
+                            console.log(
+                            "- ID: " + element.id + "\n" + 
+                            "- Servicio: " + element.serv + "\n" + 
+                            "- Precio: $" + element.precio + "\n\n");
+                        });
+        let barridoDeId = [];
+        const idEliminar = Number(prompt("Elija de la lista mostrada por consola, el ID del elemento a eliminar"));
+        barridoDeId =  servicios.map((element)=>element.id)
+    
+        if(barridoDeId.includes(idEliminar)){
+            let indice = servicios.map(servicios => servicios.id).indexOf(idEliminar)
+            servicios.splice(indice, 1);
+            console.log("- Ha eliminado el ID " + idEliminar + " exitosamente \n\n");
+            alert("- Ha eliminado el ID " + idEliminar + " exitosamente");
+        }else{
+            alert("El ID que ingresó no corresponde a ningun elemento de la lista.")
+        }
+    }
+    }
+    
+    //lista predefinida de servicios
+    const arrayServ = [
+        {id: 1, serv: "Desarrollo Web",  precio: 500},
+        {id: 2, serv:"App Mobil", precio: 300},
+        {id: 3, serv:"Redes", precio: 800},
+        {id: 4, serv:"Marketing digital", precio: 1000},
+        ]
+    
+    
+    
+    let noCargarListaDosVeces = true
+    
+    let servicios = [];
 
+    
+    //Menu
+    do {
+        menu = Number(prompt(
+            "- Ingrese el numero, segun lo que desea hacer: \n \n \
+                1.- Agregar servicios. \n \
+                2.- Mostrar listado. \n \
+                3.- Ordenar listado \n \
+                4.- Filtrar Servicios por una de sus propiedades. \n \
+                5.- Eliminar Servicios \n \
+                0.- Salir del programa."
+            ));
+        
+        switch (menu) {
+            case 1:
+                agregar();
+            break;
+            case 2:
+                mostrar();
+            break;
+            case 3:
+                ordenar();
+            break;
+            case 4:
+                filtrar()
+            break;
+            case 5:
+                eliminar()
+            break;
+
+                case 0:
+                alert("Gracias por utilizar nuestro programa!")
+            break;
+            default:
+                alert("\n No ingresó ninguno de los numeros de la lista. Ingrese nuevamente por favor \n");
+            break;
+          }
+        } while (menu != 0);
+    
+    
 }
-/*
-let alumnos = '';
-for (let index = 0; index < 3; index++) {
-    alumnos += prompt("INGRESAR NOMBRE DE ALUMNO")+"\n";
-}
-alert(alumnos);
-*/ //diapositiva 30
-
-

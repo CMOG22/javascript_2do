@@ -1,8 +1,12 @@
 h1, h2, p {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+h1 {
+    font-size: 5rem;
+    text-align: center;
+}
 .contenedor {
-    width: 90%;
+    width: 50%;
     border: 2px solid red;
     display: grid;
     grid-template-columns: 1fr;
@@ -10,19 +14,15 @@ h1, h2, p {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ff8000'/%3E%3Cstop offset='1' stop-color='%23ff8000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2300ff19'/%3E%3Cstop offset='1' stop-color='%2300ff19' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%239900ff'/%3E%3Cstop offset='1' stop-color='%239900ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ffff00'/%3E%3Cstop offset='1' stop-color='%23ffff00' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FF0000'/%3E%3Cstop offset='1' stop-color='%23FF0000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%230CF'/%3E%3Cstop offset='1' stop-color='%230CF' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
     background-attachment: fixed;
     background-size: cover;
-    h1 {
-        font-size: 5rem;
-        margin: 0 2rem;
-        text-align: center;
-        -webkit-text-fill-color: transparent;
-        -webkit-text-stroke: 1px white;
+    h2 {
+        font-size: 2.5rem;
+        margin: 2rem;
     }
-    p {
-        font-size: 3rem;
-        font-weight: lighter;
-        margin: 0 2rem;
-        text-align: center;
+    li{
+        margin-left: 3rem;
+        font-size: 2rem;
     }
+
     button {
         margin: 2rem auto;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -36,34 +36,4 @@ h1, h2, p {
         background-color: gray;
     }
 }
-h1 {
-    font-size: 5rem;
-}
-.fr_productos {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
-    column-gap: 2rem;
-    display: flex;
-    justify-content: space-around;
-    section {
-        border: 1px solid grey;
-        padding: 1rem;
-        width: 20%;
-        text-align: center;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    }
-    img {
-        width: 10rem;
-        height: 10rem;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    }
-    h2 {
-        font-size: 3rem;
-        text-align: center;
-    }
-    p {
-        color: white;
-        font-size: 2.5rem;
-        font-weight: bold;
-    }
-}
+
